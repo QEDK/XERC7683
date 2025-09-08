@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: Apache-2.0
 pragma solidity ^0.8.30;
 
+/// @title IXERC7683
+/// @notice An extension of the ERC-7683 standard that supports first-class cross-VM cross-chain intents
 interface IXERC7683 {
     /// @title XGaslessCrossChainOrder CrossChainOrder type
     /// @notice Standard order struct to be signed by users, disseminated to fillers, and submitted to origin settler contracts by fillers
