@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: Apache-2.0
-pragma solidity 0.8.30;
+pragma solidity ^0.8.30;
 
 interface IXERC7683 {
     /// @title XGaslessCrossChainOrder CrossChainOrder type
