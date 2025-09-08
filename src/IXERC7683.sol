@@ -31,6 +31,7 @@ interface IXERC7683 {
 
     /// @title XOnchainCrossChainOrder CrossChainOrder type
     /// @notice Standard order struct for user-opened orders, where the user is the one submitting the order creation transaction
+    /// @dev Since this is functionally similar to the ERC-7683 standard, developers should defer to the base implementation, the extended version is provided for developers only using the extended standard
     struct XOnchainCrossChainOrder {
         /// @dev The timestamp by which the order must be filled on the destination chain
         uint32 fillDeadline;
