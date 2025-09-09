@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: Apache-2.0
 pragma solidity ^0.8.30;
 
+
 import {IXERC7683} from "./IXERC7683.sol";
 
 /// @title IXOriginSettler
@@ -16,12 +17,6 @@ interface IXOriginSettler is IXERC7683 {
     function openFor(XGaslessCrossChainOrder calldata order, bytes calldata signature, bytes calldata originFillerData)
         external;
 
-    /// @notice Opens a cross-chain order
-    /// @dev To be called by the user
-    /// @dev This method must emit the Open event
-    /// @param order The OnchainCrossChainOrder definition
-    function open(XOnchainCrossChainOrder calldata order) external;
-
     /// @notice Resolves a specific GaslessCrossChainOrder into a generic ResolvedCrossChainOrder
     /// @dev Intended to improve standardized integration of various order types and settlement contracts
     /// @param order The GaslessCrossChainOrder definition
@@ -33,8 +28,8 @@ interface IXOriginSettler is IXERC7683 {
         returns (XResolvedCrossChainOrder memory);
 
     /// @notice Resolves a specific OnchainCrossChainOrder into a generic ResolvedCrossChainOrder
-    /// @dev Intended to improve standardized integration of various order types and settlement contracts
+    /// @dev Intended to improve standardized integration of various order types and settlement contracts. The function identifier differs from the base interface to avoid overload collisions since the parameter types are identical
     /// @param order The OnchainCrossChainOrder definition
-    /// @return ResolvedCrossChainOrder hydrated order data including the inputs and outputs of the order
-    function resolve(XOnchainCrossChainOrder calldata order) external view returns (XResolvedCrossChainOrder memory);
+    /// @return XResolvedCrossChainOrder hydrated order data including the inputs and outputs of the order
+    function xresolve(XOnchainCrossChainOrder calldata order) external view returns (XResolvedCrossChainOrder memory);
 }
